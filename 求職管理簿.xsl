@@ -6,6 +6,24 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 	<xsl:attribute name="border">0.8pt solid</xsl:attribute>
 	<xsl:attribute name="display-align">center</xsl:attribute>
 </xsl:attribute-set>
+<xsl:attribute-set name="top-less">
+	<xsl:attribute name="border-bottom">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="border-right">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="border-left">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="display-align">center</xsl:attribute>
+</xsl:attribute-set>
+<xsl:attribute-set name="right-less">
+	<xsl:attribute name="border-bottom">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="border-top">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="border-left">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="display-align">center</xsl:attribute>
+</xsl:attribute-set>
+<xsl:attribute-set name="left-less">
+	<xsl:attribute name="border-bottom">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="border-right">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="border-left">0.8pt solid</xsl:attribute>
+	<xsl:attribute name="display-align">center</xsl:attribute>
+</xsl:attribute-set>
 
 <!-- =========================================================== -->
 <!-- Root                                                        -->
@@ -55,7 +73,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 							<fo:table-column column-width="40%"/>
 							<fo:table-body>
 								<fo:table-row height="15mm">
-									<fo:table-cell border-top="1.5pt solid" border-bottom="1.5pt solid" border-left="1.5pt solid" xsl:use-attribute-sets="cell-base">
+									<fo:table-cell border-top="1.5pt solid" border-bottom="1.5pt solid" border-left="1.5pt solid" display-align="center" border-right="0.8pt solid">
 										<fo:block text-align="center">
 											①受付
 										</fo:block>
@@ -63,12 +81,12 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 											年月日
 										</fo:block>
 									</fo:table-cell>
-									<fo:table-cell xsl:use-attribute-sets="cell-base">
+									<fo:table-cell border-bottom="1.5pt solid" border-right="0.8pt solid" border-top="1.5pt solid" display-align="center">
 										<fo:block text-align="center" font-size="11pt">
 											②求職者に係る氏名・住所・生年月日
 										</fo:block>
 									</fo:table-cell>
-									<fo:table-cell xsl:use-attribute-sets="cell-base">
+									<fo:table-cell border-bottom="1.5pt solid" border-right="0.8pt solid" border-top="1.5pt solid" display-align="center">
 										<fo:block text-align="center">
 											③有効期間/
 										</fo:block>
@@ -76,7 +94,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 											紹介年月日
 										</fo:block>
 									</fo:table-cell>
-									<fo:table-cell xsl:use-attribute-sets="cell-base">
+									<fo:table-cell display-align="center" border-right="1.5pt solid" border-bottom="1.5pt solid" border-top="1.5pt solid" >
 										<fo:block text-align="center" font-size="11pt">
 											④職業紹介の取扱状況
 										</fo:block>
@@ -96,12 +114,12 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 												<fo:table-column column-number="2" column-width="80%"/>
 												<fo:table-body>
 													<fo:table-row height="10mm">
-														<fo:table-cell xsl:use-attribute-sets="cell-base">
+														<fo:table-cell xsl:use-attribute-sets="top-less">
 															<fo:block text-align="center">
 																氏名
 															</fo:block>
 														</fo:table-cell>
-														<fo:table-cell xsl:use-attribute-sets="cell-base">
+														<fo:table-cell xsl:use-attribute-sets="top-less">
 															<fo:block text-align="left" padding-left="1mm">
 																<xsl:value-of select="Sales.P_Resume/Resume/Resume.P_Name"/>
 															</fo:block>
@@ -168,7 +186,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 											<fo:table table-layout="fixed" width="100%">
 												<fo:table-body>
 													<fo:table-row height="10mm">
-														<fo:table-cell xsl:use-attribute-sets="cell-base">
+														<fo:table-cell xsl:use-attribute-sets="top-less">
 															<fo:block text-align="center">
 																有効期限
 															</fo:block>
