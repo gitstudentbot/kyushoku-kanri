@@ -12,9 +12,22 @@
 	
 		<Sales.P_Resume>
 			<Resume>
+				<Resume.P_ExpectJobCategory>希望の職種</Resume.P_ExpectJobCategory>
+				<Resume.P_DateOfBirth> 年齢(生年月日) </Resume.P_DateOfBirth>
 				<Resume.P_Name>氏名</Resume.P_Name>
-				
-	
+				<Resume.P_Candidate>
+					<Candidate>
+						<Person.P_Zipcode>郵便番号</Person.P_Zipcode>
+            <Person.P_Mobile>携帯</Person.P_Mobile>
+            <Person.P_Telephone>電話番号</Person.P_Telephone>
+            <Person.P_Mail>メール</Person.P_Mail>
+            <Person.P_Name> 氏名 </Person.P_Name>
+            <Person.P_Reading> (フリガナ) </Person.P_Reading>
+            <Person.U_6E906CC3D68B8B4F24A2BA8C5398E7> 都道府県(連絡先) </Person.U_6E906CC3D68B8B4F24A2BA8C5398E7>
+            <Person.P_City> 市区郡(連絡先) </Person.P_City>
+            <Person.P_Street> 住所詳細(連絡先) </Person.P_Street>
+					</Candidate>
+				</Resume.P_Candidate>
 			</Resume>
 		</Sales.P_Resume>
 		

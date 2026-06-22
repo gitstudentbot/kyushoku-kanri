@@ -55,7 +55,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 							<fo:table-column column-width="40%"/>
 							<fo:table-body>
 								<fo:table-row height="15mm">
-									<fo:table-cell xsl:use-attribute-sets="cell-base">
+									<fo:table-cell border-top="1.5pt solid" border-bottom="1.5pt solid" border-left="1.5pt solid" xsl:use-attribute-sets="cell-base">
 										<fo:block text-align="center">
 											①受付
 										</fo:block>
@@ -83,38 +83,126 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 									</fo:table-cell>
 								</fo:table-row>
 								<fo:table-row height="105mm">
-									<fo:table-cell xsl:use-attribute-sets="cell-base">
+									<fo:table-cell display-align="center" border-left="1.5pt solid" border-bottom="1.5pt solid">
 										<fo:block text-align="center">
 											<xsl:value-of select="Sales.U_6170B623017E191B4AA765AB985586"/>
 										</fo:block>
 									</fo:table-cell>
+									<!--ネストテーブル１-->
+									<fo:table-cell display-align="before">
+										<fo:block>
+											<fo:table table-layout="fixed" width="100%">
+												<fo:table-column column-number="1" column-width="20%"/>
+												<fo:table-column column-number="2" column-width="80%"/>
+												<fo:table-body>
+													<fo:table-row height="10mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																氏名
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="left" padding-left="1mm">
+																<xsl:value-of select="Sales.P_Resume/Resume/Resume.P_Name"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="25mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																住所
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="left">
+																<fo:inline>
+																	〒<xsl:value-of select="Process.P_Resume/Resume/Resume.P_Candidate/Candidate/Person.P_Zipcode"/>
+																</fo:inline>
+																<fo:inline>
+																	<xsl:variable name="pref" select="normalize-space(Process.P_Resume/Resume/Resume.P_Candidate/Candidate/Person.U_6E906CC3D68B8B4F24A2BA8C5398E7)"/>
+																	<xsl:variable name="addr" select="normalize-space(Process.P_Resume/Resume/Resume.P_Candidate/Candidate/Person.P_Street)"/>
+																	<xsl:choose>
+																	<xsl:when test="string-length($pref) &gt; 0 and substring($addr, 1, string-length($pref)) = $pref">
+																		<xsl:value-of select="$pref"/>
+																		<xsl:value-of select="substring($addr, string-length($pref) + 1)"/>
+																	</xsl:when>
+																	<xsl:otherwise>
+																		<xsl:value-of select="concat($pref, $addr)"/>
+																	</xsl:otherwise>
+																	</xsl:choose>
+																</fo:inline>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="8mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																生年月日
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="left">
+																<xsl:value-of select="Sales.P_Resume/Resume/Resume.P_DateOfBirth"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="8mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																希望職種
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="left">
+																<xsl:value-of select="Sales.P_Resume/Resume/Resume.P_ExpectJobCategory"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+												</fo:table-body>
+											</fo:table>
+										</fo:block>
+										<!--ネストテーブル１終了-->
+									</fo:table-cell>
+									<fo:table-cell>
+										<fo:block>
+											<fo:table table-layout="fixed" width="100%">
+												<fo:table-body>
+													<fo:table-row height="10mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																有効期限
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="17mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																<xsl:value-of select="Sales.P_Job/Job/Job.U_357A3EFEBC41DBEB7CC3BAFEC669BB"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="8mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																紹介年月日
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="16mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																<xsl:value-of select="Sales.U_E538E1626180614856ADE9D08F0552"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+												</fo:table-body>
+											</fo:table>
+										</fo:block>
+									</fo:table-cell>
 								</fo:table-row>
 							</fo:table-body>
 						</fo:table>
-
-						<fo:table table-layout="fixed" width="100%">
-							<fo:table-column column-width="10mm"/>
-							<fo:table-column column-width="30mm"/>
-							<fo:table-body>
-								<fo:table-row height="10mm">
-									<fo:table-cell xsl:use-attribute-sets="cell-base">
-										<fo:block text-align="center">
-											氏名
-										</fo:block>
-									</fo:table-cell>
-									<fo:table-cell xsl:use-attribute-sets="cell-base">
-										<fo:block text-align="center">
-											氏名
-										</fo:block>
-									</fo:table-cell>
-								</fo:table-row>
-							</fo:table-body>
-						</fo:table>
-					
- 						
-						
 					</fo:flow>
-					
 				</fo:page-sequence>
 			</xsl:for-each>
 		</fo:root>
