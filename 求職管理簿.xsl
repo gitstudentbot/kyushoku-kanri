@@ -100,8 +100,8 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 										</fo:block>
 									</fo:table-cell>
 								</fo:table-row>
-								<fo:table-row height="105mm">
-									<fo:table-cell display-align="center" border-left="1.5pt solid" border-bottom="1.5pt solid">
+								<fo:table-row>
+									<fo:table-cell display-align="center" border-left="1.5pt solid" border-bottom="1.5pt solid" number-rows-spanned="2">
 										<fo:block text-align="center">
 											<xsl:value-of select="Sales.U_6170B623017E191B4AA765AB985586"/>
 										</fo:block>
@@ -125,7 +125,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 															</fo:block>
 														</fo:table-cell>
 													</fo:table-row>
-													<fo:table-row height="25mm">
+													<fo:table-row height="20.3mm">
 														<fo:table-cell xsl:use-attribute-sets="cell-base">
 															<fo:block text-align="center">
 																住所
@@ -164,7 +164,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 															</fo:block>
 														</fo:table-cell>
 													</fo:table-row>
-													<fo:table-row height="8mm">
+													<fo:table-row height="7.7mm">
 														<fo:table-cell xsl:use-attribute-sets="cell-base">
 															<fo:block text-align="center">
 																希望職種
@@ -182,6 +182,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 										<!--ネストテーブル１終了-->
 									</fo:table-cell>
 									<fo:table-cell>
+										<!--ネストテーブル２-->
 										<fo:block>
 											<fo:table table-layout="fixed" width="100%">
 												<fo:table-body>
@@ -192,7 +193,7 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 															</fo:block>
 														</fo:table-cell>
 													</fo:table-row>
-													<fo:table-row height="17mm">
+													<fo:table-row height="12mm">
 														<fo:table-cell xsl:use-attribute-sets="cell-base">
 															<fo:block text-align="center">
 																<xsl:value-of select="Sales.P_Job/Job/Job.U_357A3EFEBC41DBEB7CC3BAFEC669BB"/>
@@ -215,6 +216,79 @@ xmlns:fo="http://www.w3.org/1999/XSL/Format">
 													</fo:table-row>
 												</fo:table-body>
 											</fo:table>
+										</fo:block>
+									</fo:table-cell>
+									<fo:table-cell>
+										<!--ネストテーブル３-->
+										<fo:block>
+											<fo:table table-layout="fixed" width="100%">
+												<fo:table-column column-number="1" column-width="20%"/>
+												<fo:table-column column-number="2" column-width="25%"/>
+												<fo:table-column column-number="3" column-width="55%"/>
+												<fo:table-body>
+													<fo:table-row height="24.8mm">
+														<fo:table-cell xsl:use-attribute-sets="top-less">
+															<fo:block text-align="center">
+																求人受理
+															</fo:block>
+															<fo:block text-align="center">
+																番号
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="top-less">
+															<fo:block text-align="center">
+																求人者の
+															</fo:block>
+															<fo:block text-align="center">
+																氏名/名称
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="top-less">
+															<fo:block text-align="center">
+																<xsl:value-of select="Sales.P_Recruiter/Recruiter/Recruiter.P_Name"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="8mm">
+														<fo:table-cell xsl:use-attribute-sets="cell-base" number-rows-spanned="2">
+															<fo:block text-align="center">
+																<xsl:value-of select="translate(Sales.U_6170B623017E191B4AA765AB985586, '/', '')"/>
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																顛末内容
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																<xsl:value-of select="Sales.U_3EDE5A36BDE9707996E2FBAC9330F6"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row height="13.5mm">
+
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																採用年月日
+															</fo:block>
+														</fo:table-cell>
+														<fo:table-cell xsl:use-attribute-sets="cell-base">
+															<fo:block text-align="center">
+																<xsl:value-of select="Sales.U_0EB4A080A12912811EDE9ADFA9AD6F"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+												</fo:table-body>
+											</fo:table>
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>
+								<!--ネストテーブル３終了-->
+								<fo:table-row height="20mm">
+									<fo:table-cell xsl:use-attribute-sets="cell-base" >
+										<fo:block>
+											
 										</fo:block>
 									</fo:table-cell>
 								</fo:table-row>
